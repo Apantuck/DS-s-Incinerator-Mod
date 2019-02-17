@@ -36,12 +36,14 @@ script.on_event({defines.events.on_tick},
         function(e)
                 if (e.tick % 5) ~= 0 then return end
                 for index,incinerator in pairs(global.Incinerators) do
-                        local inv = incinerator.get_inventory(defines.inventory.chest)
-                        local items = inv.get_contents()
-                        for name,numItem in pairs(items) do
-                                inv.remove({name = name, count=1})
+                        if incinerator.valid then
+                                local inv = incinerator.get_inventory(defines.inventory.chest)
+                                local items = inv.get_contents()
+                                for name,numItem in pairs(items) do
+                                        inv.remove({name = name, count=1})
+                                end
+                                inv.sort_and_merge()
                         end
-                        inv.sort_and_merge()
                 end
         end
 )
