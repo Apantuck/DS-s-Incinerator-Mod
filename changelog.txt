@@ -1,0 +1,9 @@
+0.1.6
+--------------------------------------
+- Fixed fatal bug when mining incinerator.
+- Added changelog.txt.
+
+0.1.5
+---------------------------------------
+- Items no longer get consumed instantly.
+- Incinerator inventory expanded from 1 to 20.

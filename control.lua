@@ -32,14 +32,16 @@ script.on_event({on_robot_mined_entity, on_player_mined_entity, on_entity_died},
         end
 )
 
+-- Every few ticks, go through list of incinerators. For each stack of items in each incinerator,
+-- remove 1 item (then re-sort and merge the inventory).
 script.on_event({defines.events.on_tick},
         function(e)
                 if (e.tick % 5) ~= 0 then return end
                 for index,incinerator in pairs(global.Incinerators) do
                         if incinerator.valid then
                                 local inv = incinerator.get_inventory(defines.inventory.chest)
-                                local items = inv.get_contents()
-                                for name,numItem in pairs(items) do
+                                local itemStacks = inv.get_contents()
+                                for name,numItem in pairs(itemStacks) do
                                         inv.remove({name = name, count=1})
                                 end
                                 inv.sort_and_merge()
