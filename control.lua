@@ -3,11 +3,9 @@
 -- control.lua
 -- Implementation of incinerator behaviour
 
-
--- Initialize the list of incinerators
--- (Incinerators are indexed by their entity.unit_number)
 script.on_init(
         function()
+                -- Initialize list of incinerators
                 global.Incinerators = {}
         end
 )
@@ -34,14 +32,16 @@ script.on_event({on_robot_mined_entity, on_player_mined_entity, on_entity_died},
         end
 )
 
--- Every 20 ticks, clear the incinerator inv
 script.on_event({defines.events.on_tick},
         function(e)
-                if not (e.tick%20)== 0 then return end
+                if (e.tick % 5) ~= 0 then return end
                 for index,incinerator in pairs(global.Incinerators) do
-                        if incinerator.valid then
-                                incinerator.clear_items_inside()
+                        local inv = incinerator.get_inventory(defines.inventory.chest)
+                        local items = inv.get_contents()
+                        for name,numItem in pairs(items) do
+                                inv.remove({name = name, count=1})
                         end
+                        inv.sort_and_merge()
                 end
         end
 )

@@ -1,11 +1,11 @@
 {
     "name": "DS_Incinerator",
-    "version": "0.1.0",
+    "version": "0.1.5",
     "title": "DS'S Incinerator",
     "author": "Alex Pantuck",
     "contact": "",
     "homepage": "",
     "factorio_version": "0.16",
     "dependencies": ["base >= 0.16"],
-    "description": "This mod adds in an incinerator that permanently destroys items."
+    "description": "This mod adds an incinerator that permanently destroys items."
 }

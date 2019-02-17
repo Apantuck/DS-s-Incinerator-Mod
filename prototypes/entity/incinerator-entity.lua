@@ -29,7 +29,7 @@ data:extend(
                 collision_box = {{-0.7, -0.7}, {0.7, 0.7}},
                 selection_box = {{-0.8, -1}, {0.8, 1}},
                 fast_replaceable_group = "container",
-                inventory_size = 1,
+                inventory_size = 20,
                 enable_inventory_bar = false,
                 emissions_per_tick = 0.01,
                 picture = {

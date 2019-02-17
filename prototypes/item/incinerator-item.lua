@@ -23,11 +23,14 @@ local incinerator = {
 local recipe = {
         type = "recipe",
         name = "incinerator",
-        ingredients = {
-                {"iron-plate", 25},
-                {"raw-wood", 5}
+        normal = {
+            ingredients = {{"raw-wood", 5}, {"iron-plate", 25}},
+            result = "incinerator"
         },
-        result = "incinerator",
+        expensive = {
+            ingredients = {{"coal", 15}, {"iron-plate", 50}},
+            result = "incinerator"
+        },
         result_count = 1,
         energy_required = 3,
         allow_decomposition = false,
