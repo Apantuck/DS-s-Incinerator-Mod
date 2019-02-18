@@ -77,7 +77,7 @@ local methRecipe = {
     type = "recipe",
     name = "methane",
     subgroup = "fluid-recipe"
-    category = "incineration",
+    category = "compression",
     ingredients = {"garbage-cube", 5},
     allow_decomposition = false,
     result = {type = "fluid", name = "methane-gas", amount = 20},
