@@ -1,3 +1,11 @@
+0.2.0
+--------------------------------------
+- Added compressor, methane, garbage, and gas boiler
+- Altered incinerator function (now converts garbage into methane)
+- Added new research to unlock the above
+- Added crafting difficulty
+- Adjusted crafting balance
+
 0.1.6
 --------------------------------------
 - Fixed fatal bug when mining incinerator.

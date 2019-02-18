@@ -1,11 +1,11 @@
 {
     "name": "DS_Incinerator",
-    "version": "0.1.6",
+    "version": "0.2.0",
     "title": "DS'S Incinerator",
     "author": "Alex Pantuck",
     "contact": "",
     "homepage": "",
     "factorio_version": "0.16",
     "dependencies": ["base >= 0.16"],
-    "description": "This mod adds an incinerator that permanently destroys items."
+    "description": "Adds a system to convert garbage items into energy."
 }

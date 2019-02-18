@@ -3,5 +3,5 @@
 -- fuel-category-incinerator.lua
 -- Definition for incinerator fuel category
 
--- anything can be fed into the incinerator
-data:extend({{type = "fuel-category", name = "anything"}})
+-- Compressor takes anything as fuel
+data:extend({{type = "fuel-category", name = "compressable"}})

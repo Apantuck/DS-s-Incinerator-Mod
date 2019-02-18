@@ -3,4 +3,7 @@
 -- incinerator-recipe-category.lua
 -- Definition for incinerator recipe category
 
-data:extend({{type = "recipe-category", name = "incineration"}})
+data:extend({
+        {type = "recipe-category", name = "incineration"},
+        {type = "recipe-category", name = "compression"}
+})

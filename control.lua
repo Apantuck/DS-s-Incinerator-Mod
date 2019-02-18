@@ -9,7 +9,7 @@ script.on_init(
                 global.Incinerators = {}
         end
 )
---test
+
 -- When an incinerator is placed, add it to the list of incinerators
 script.on_event({defines.events.on_built_entity, defines.events.on_robot_built_entity},
         function(e)
