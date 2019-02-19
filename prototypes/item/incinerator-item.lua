@@ -99,8 +99,7 @@ local methane = {
 
 local methRecipe = {
     type = "recipe",
-    name = "methane",
-    subgroup = "fluid-recipe",
+    name = "methane-gas",
     category = "compression",
     normal = {
         ingredients = {{"garbage-cube", 5}},

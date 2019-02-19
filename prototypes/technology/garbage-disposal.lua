@@ -20,7 +20,7 @@ local garbage_tech = {
       },
       {
         type = "unlock-recipe",
-        recipe = "methane"
+        recipe = "methane-gas"
       },
       {
         type = "unlock-recipe",

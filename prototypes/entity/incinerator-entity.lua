@@ -53,17 +53,17 @@ compressor_entity.fluid_boxes = {
         filter = "methane-gas",
         pipe_picture = assembler2pipepictures(),
         pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = 1,
-        pipe_connections = {{ type="output", position = {0, 2} }},
-        secondary_draw_orders = { north = -1 }
-      },
-      off_when_no_fluid_recipe = false
+        base_area = 1,
+        base_level = -1,
+        height = 2,
+        pipe_connections = {{ type = "output", position = {0, -0.7} }}
+      }
 }
 
 -----------------------------------------------------------
 -- Gas boiler
 local gBoilerEntity = table.deepcopy(data.raw.boiler["boiler"])
+gBoilerEntity.name = "gas-boiler"
 gBoilerEntity.fluid_boxes = {
         -- input/output water
         {
@@ -109,7 +109,7 @@ gBoilerEntity.fluid_boxes = {
 -----------------------------------------------------------
 -- garbage wall
 
-local garbage_wall = table.deepcopy(data.raw.wall[stone-wall])
+local garbage_wall = table.deepcopy(data.raw.wall["stone-wall"])
 garbage_wall.name = "garbage-wall"
 garbage_wall.emissions_per_tick = 0.001
 
