@@ -43,9 +43,9 @@ local gCube = {
     name = "garbage-cube",
     subgroup = "intermediate-product",
     flags = { "goes-to-main-inventory" },
-    icon = nil, -- replace later
+    icon = "__base__/graphics/icons/landfill.png",
     icon_size = 32,
-    place_result = "garbage wall",
+    place_result = "stone-wall",
     stack_size = 200
 }
 
@@ -58,7 +58,7 @@ local gCubeRecipe = {
     subgroup = "intermediate-product",
     result = "garbage-cube",
     result_count = 1,
-    ingredients = nil,
+    ingredients = {},
     allow_decomposition = false,
     energy_required = 2,
     always_show_made_in = true,
@@ -67,6 +67,14 @@ local gCubeRecipe = {
 
 local gLandfill = table.deepcopy(data.raw.recipe["landfill"])
 gLandfill.ingredients = {"garbage-cube", 5}
+gLandfill.normal = {
+    ingredients = {{"garbage-cube", 5}},
+    result = "landfill"
+}
+gLandfill.expensive = {
+    ingredients = {{"garbage-cube", 10}},
+    result = "landfill"
+}
 
 -------------------------------------------------------
 -- methane item/fluid
@@ -74,6 +82,17 @@ gLandfill.ingredients = {"garbage-cube", 5}
 local methane = {
     type = "fluid",
     name = "methane-gas",
+    default_temperature = 15,
+    max_temperature = 1000,
+    heat_capacity = "0.2KJ",
+    icon = "__base__/graphics/icons/fluid/steam.png",
+    icon_size = 32,
+    base_color = {r=0.5, g=0.5, b=0.5},
+    flow_color = {r=1.0, g=1.0, b=1.0},
+    pressure_to_speed_ratio = 0.4,
+    flow_to_energy_ratio = 0.59,
+    gas_temperature = 15,
+    auto_barrel = false,
     fuel_category = "chemical",
     fuel_value = "12MJ"
 }
@@ -83,9 +102,11 @@ local methRecipe = {
     name = "methane",
     subgroup = "fluid-recipe",
     category = "compression",
-    ingredients = {"garbage-cube", 5},
+    normal = {
+        ingredients = {{"garbage-cube", 5}},
+        results = {{type = "fluid", name = "methane-gas", amount = 20}}
+    },
     allow_decomposition = false,
-    result = {type = "fluid", name = "methane-gas", amount = 20},
     energy_required = 10,
     emissions_multiplier = 5,
     always_show_made_in = true,
@@ -150,10 +171,17 @@ local compressorRecipe = {
 -----------------------------------------------------------------------
 
 data:extend(
-    {incinerator, inRecipe},
-    {gCube, gCubeRecipe},
-    {methane, methRecipe},
-    {gBoiler, gBoilerRecipe},
-    {compressor, compressorRecipe},
-    {gLandfill}
+    {
+        incinerator, 
+        inRecipe, 
+        gCube, 
+        gCubeRecipe, 
+        methane, 
+        methRecipe,
+        gBoiler, 
+        gBoilerRecipe,
+        compressor, 
+        compressorRecipe,
+        gLandfill
+    }
 )

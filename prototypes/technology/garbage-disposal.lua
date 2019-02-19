@@ -23,11 +23,11 @@ local garbage_tech = {
         recipe = "methane"
       },
       {
-        type = "unlock-recipe"
+        type = "unlock-recipe",
         recipe = "gas-boiler"
       },
       {
-        type = "unlock-recipe"
+        type = "unlock-recipe",
         recipe = "compressor"
       }
     },
@@ -38,3 +38,5 @@ local garbage_tech = {
       time = 5
     },
 }
+
+data:extend{garbage_tech}

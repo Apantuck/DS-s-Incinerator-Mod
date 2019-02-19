@@ -4,8 +4,8 @@
 -- to do: set every item without a fuel-category to "everything"
 
 -- modify landfill tech to include garbage cube recipe
-local landfill = table.deepcopy(data.raw.item["landfill"])
-landfill.effects = {
+local landfill_tech = data.raw.item["landfill"]
+landfill_tech.effects = {
       {
         type = "unlock-recipe",
         recipe = "landfill"
@@ -15,3 +15,5 @@ landfill.effects = {
         recipe = "garbage-landfill"
       }
 }
+
+data:extend{landfill_tech}
