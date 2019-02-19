@@ -65,31 +65,60 @@ compressor_entity.fluid_boxes = {
 -- Gas boiler
 local gBoilerEntity = table.deepcopy(data.raw.boiler["boiler"])
 gBoilerEntity.fluid_boxes = {
-      {
-            base_area = 1,
-            height = 2,
-            base_level = -1,
-            pipe_covers = pipecoverspictures(),
-            pipe_connections =
-            {
-              {type = "input-output", position = {-2, 0.5}},
-              {type = "input-output", position = {2, 0.5}}
-            },
-            filter = "methane-gas",
-            production_type = "input",
-            off_when_no_fluid_recipe = false
-    }
+        -- input/output water
+        {
+                base_area = 1,
+                height = 2,
+                base_level = -1,
+                pipe_covers = pipecoverspictures(),
+                pipe_connections =
+                {
+                {type = "input-output", position = {-2, 0.5}},
+                {type = "input-output", position = {2, 0.5}}
+                },
+                production_type = "input-output",
+                filter = "water"
+        },
+        -- output steam
+        {
+                base_area = 1,
+                height = 2,
+                base_level = 1,
+                pipe_covers = pipecoverspictures(),
+                pipe_connections =
+                {
+                {type = "output", position = {0, -1.5}}
+                },
+                production_type = "output",
+                filter = "steam"
+        },
+        -- input methane
+        {
+                base_area = 1,
+                height = 2,
+                base_level = 1,
+                pipe_covers = pipecoverspictures(),
+                pipe_connections = {
+                {type = "input", position = {0, 1.5}}
+                },
+                production_type = "input",
+                filter = "methane-gas"
+        }
 }
 
 -----------------------------------------------------------
 -- garbage wall
 
-
+local garbage_wall = table.deepcopy(data.raw.wall[stone-wall])
+garbage_wall.name = "garbage-wall"
+garbage_wall.emissions_per_tick = 0.001
 
 ---------------------------------------------------------
 data:extend(
         {
                 incinerator_entity,
-                compressor_entity
+                compressor_entity,
+                gBoilerEntity,
+                garbage_wall
         }
 )
