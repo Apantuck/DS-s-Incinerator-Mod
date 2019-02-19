@@ -7,6 +7,7 @@
 
 local incinerator = table.deepcopy(data.raw.furnace["steel-furnace"])
 incinerator.name = "incinerator"
+incinerator.type = "assembling-machine"
 incinerator.crafting_categories = {"compression"}
 incinerator.render_no_network_icon = false
 incinerator.ingredient_count = 1
@@ -28,15 +29,27 @@ incinerator.energy_source = {
                 }
         }
 }
-incinerator.result_inventory_size = 1
-incinerator.source_inventory_size = 1
+incinerator.result_inventory_size = nil
+incinerator.source_inventory_size = nil
 incinerator.minable = {mining_time = 1, result = "incinerator"}
 
 ------------------------------------------------------------
+-- Compressor
 
+local compressor_entity = {
+        type = "furnace",
+        name = "compressor",
 
+}
+
+-----------------------------------------------------------
+-- Gas boiler
 
 
 -----------------------------------------------------------
+-- garbage wall
 
+
+
+---------------------------------------------------------
 data:extend{incinerator}

@@ -45,7 +45,7 @@ local gCube = {
     flags = { "goes-to-main-inventory" },
     icon = "__base__/graphics/icons/landfill.png",
     icon_size = 32,
-    place_result = "stone-wall",
+    place_result = "garbage-wall",
     stack_size = 200
 }
 
