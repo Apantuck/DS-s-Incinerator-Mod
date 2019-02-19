@@ -65,6 +65,9 @@ local gCubeRecipe = {
     enabled = false
 }
 
+local gLandfill = table.deepcopy(data.raw.recipe["landfill"])
+gLandfill.ingredients = {"garbage-cube", 5}
+
 -------------------------------------------------------
 -- methane item/fluid
 
@@ -151,5 +154,6 @@ data:extend(
     {gCube, gCubeRecipe},
     {methane, methRecipe},
     {gBoiler, gBoilerRecipe},
-    {compressor, compressorRecipe}
+    {compressor, compressorRecipe},
+    {gLandfill}
 )
