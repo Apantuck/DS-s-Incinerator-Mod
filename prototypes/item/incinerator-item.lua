@@ -9,7 +9,8 @@
 local incinerator = {
     type = "item",
     name = "incinerator",
-    subgroup = "assembling-machine",
+    subgroup = "production-machine",
+    flags = { "goes-to-quickbar" },
     icon = "__base__/graphics/icons/steel-furnace.png",
     icon_size = 32,
     place_result = "incinerator",
@@ -41,6 +42,7 @@ local gCube = {
     type = "item",
     name = "garbage-cube",
     subgroup = "intermediate-product",
+    flags = { "goes-to-main-inventory" },
     icon = nil, -- replace later
     icon_size = 32,
     place_result = "garbage wall",
@@ -69,14 +71,14 @@ local gCubeRecipe = {
 local methane = {
     type = "fluid",
     name = "methane-gas",
-    fuel-category = "chemical",
-    fuel-value = 12MJ
+    fuel_category = "chemical",
+    fuel_value = "12MJ"
 }
 
 local methRecipe = {
     type = "recipe",
     name = "methane",
-    subgroup = "fluid-recipe"
+    subgroup = "fluid-recipe",
     category = "compression",
     ingredients = {"garbage-cube", 5},
     allow_decomposition = false,
@@ -94,6 +96,7 @@ local gBoiler = {
     type = "item",
     name = "gas-boiler",
     subgroup = "energy",
+    flags = { "goes-to-quickbar" },
     icon = "__base__/graphics/icons/boiler.png",
     icon_size = 32,
     place_result = "gas-boiler",
@@ -117,10 +120,11 @@ local compressor = {
     type = "item",
     name = "compressor",
     subgroup = "smelting-machine",
+    flags = { "goes-to-quickbar" },
     icon = "__base__/graphics/icons/steel-furnace.png",
     icon_size = 32,
     place_result = "compressor",
-    stack_size = 25,
+    stack_size = 25
 }
 
 local compressorRecipe = {
@@ -142,10 +146,10 @@ local compressorRecipe = {
 
 -----------------------------------------------------------------------
 
-data:extend({
+data:extend(
     {incinerator, inRecipe},
     {gCube, gCubeRecipe},
     {methane, methRecipe},
     {gBoiler, gBoilerRecipe},
     {compressor, compressorRecipe}
-})
+)
