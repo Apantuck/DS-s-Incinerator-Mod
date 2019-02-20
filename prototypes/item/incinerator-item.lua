@@ -59,13 +59,15 @@ local gCubeRecipe = {
     name = "garbage-cube",
     category = "compression",
     subgroup = "intermediate-product",
-    result = "garbage-cube",
+    normal = {
+        ingredients = {},
+        result = "garbage-cube"
+    },
     result_count = 1,
-    ingredients = {},
     allow_decomposition = false,
-    energy_required = 2,
+    energy_required = 5,
     always_show_made_in = true,
-    enabled = false
+    enabled = true
 }
 
 -- Alt landfill recipe that takes garbage cubes
