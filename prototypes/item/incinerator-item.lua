@@ -38,6 +38,7 @@ local inRecipe = {
 -- Garbage cube
 
 -- garbage cube item
+-- places garbage-wall entity (aka stone-wall for now)
 local gCube = {
     type = "item",
     name = "garbage-cube",
@@ -49,8 +50,10 @@ local gCube = {
     stack_size = 200
 }
 
--- Compressor converts (nothing) into cube,
--- (but accepts anything as fuel)
+-- garbage cube recipe
+-- made in compressor.
+-- turns nothing into cube, but takes fuel.
+-- Takes anything as fuel
 local gCubeRecipe = {
     type = "recipe",
     name = "garbage-cube",
@@ -65,7 +68,9 @@ local gCubeRecipe = {
     enabled = false
 }
 
+-- Alt landfill recipe that takes garbage cubes
 local gLandfill = table.deepcopy(data.raw.recipe["landfill"])
+gLandfill.name = "garbage-landfill"
 gLandfill.ingredients = {"garbage-cube", 5}
 gLandfill.normal = {
     ingredients = {{"garbage-cube", 5}},
@@ -82,6 +87,7 @@ gLandfill.expensive = {
 local methane = {
     type = "fluid",
     name = "methane-gas",
+    subgroup = "fluid",
     default_temperature = 15,
     max_temperature = 1000,
     heat_capacity = "0.2KJ",
@@ -100,16 +106,18 @@ local methane = {
 local methRecipe = {
     type = "recipe",
     name = "methane-gas",
-    category = "compression",
+    subgroup = "fluid-recipes",
+    category = "incineration",
     normal = {
         ingredients = {{"garbage-cube", 5}},
         results = {{type = "fluid", name = "methane-gas", amount = 20}}
     },
     allow_decomposition = false,
-    energy_required = 10,
+    energy_required = 100,
     emissions_multiplier = 5,
     always_show_made_in = true,
-    enabled = false
+    enabled = false,
+    hidden = true
 }
 
 ---------------------------------------------------------
@@ -174,13 +182,13 @@ data:extend(
         incinerator, 
         inRecipe, 
         gCube, 
-        gCubeRecipe, 
+        gCubeRecipe,
+        gLandfill,
         methane, 
         methRecipe,
         gBoiler, 
         gBoilerRecipe,
         compressor, 
-        compressorRecipe,
-        gLandfill
+        compressorRecipe
     }
 )

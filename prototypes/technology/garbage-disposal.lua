@@ -6,6 +6,7 @@
 local garbage_tech = {
     type = "technology",
     name = "garbage-disposal",
+    enabled = false,
     icon_size = 128,
     icon = "__base__/graphics/technology/steel-processing.png",
     effects =
@@ -39,4 +40,30 @@ local garbage_tech = {
     },
 }
 
-data:extend{garbage_tech}
+local glandfill = {
+    type = "technology",
+    name = "garbage-landfill",
+    enabled = false,
+    icon_size = 128,
+    icon = "__base__/graphics/technology/steel-processing.png",
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "garbage-landfill"
+      }
+    },
+    unit =
+    {
+      count = 50,
+      ingredients = {{"science-pack-1", 10}},
+      time = 5
+    },
+    prerequisites = {"garbage-disposal", "landfill"}
+}
+
+data:extend(
+{
+  garbage_tech,
+  glandfill
+})
