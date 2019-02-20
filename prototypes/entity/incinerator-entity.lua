@@ -49,7 +49,8 @@ local compressor_entity = table.deepcopy(data.raw.furnace["steel-furnace"])
 compressor_entity.name = "compressor"
 compressor_entity.crafting_categories = {"compression"}
 compressor_entity.result_inventory_size = 1
-compressor_entity.source_inventory_size = 0
+compressor_entity.source_inventory_size = 1
+compressor_entity.minable = {mining_time = 1, result = "compressor"}
 compressor_entity.energy_source = {
         type = "burner",
         effectivity = 1,
@@ -62,6 +63,7 @@ compressor_entity.energy_source = {
 -- Gas boiler
 local gBoilerEntity = table.deepcopy(data.raw.boiler["boiler"])
 gBoilerEntity.name = "gas-boiler"
+gBoilerEntity.minable = {mining_time = 1, result = "gas-boiler"}
 gBoilerEntity.fluid_boxes = {
         -- input/output water
         {
@@ -107,6 +109,7 @@ gBoilerEntity.fluid_boxes = {
 
 local garbage_wall = table.deepcopy(data.raw.wall["stone-wall"])
 garbage_wall.name = "garbage-wall"
+garbage_wall.minable = {mining_time = 1, result = "garbage-cube"}
 garbage_wall.emissions_per_tick = 0.001
 
 ---------------------------------------------------------

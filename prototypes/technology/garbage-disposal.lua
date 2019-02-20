@@ -6,7 +6,6 @@
 local garbage_tech = {
     type = "technology",
     name = "garbage-disposal",
-    enabled = false,
     icon_size = 128,
     icon = "__base__/graphics/technology/steel-processing.png",
     effects =
@@ -43,7 +42,6 @@ local garbage_tech = {
 local glandfill = {
     type = "technology",
     name = "garbage-landfill",
-    enabled = false,
     icon_size = 128,
     icon = "__base__/graphics/technology/steel-processing.png",
     effects =

@@ -80,6 +80,7 @@ gLandfill.expensive = {
     ingredients = {{"garbage-cube", 10}},
     result = "landfill"
 }
+gLandfill.enabled = false
 
 -------------------------------------------------------
 -- methane item/fluid
